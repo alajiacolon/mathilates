@@ -7,63 +7,75 @@
 
     <title>Math Out</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <main class="game-container">
         <!-- START SCREEN-->
         <section id="start-screen" class="screen">
-            <h1>Math Out</h1>
-            <p>Work out your brain!</p>
+            <div class="title">
+                <div>
+                    <h1 class="title"><span class="title press-start-2p-regular">Mathilates</span></h1>
+                </div>
+                
+            </div>
+            <p class="subtitle">Low intensity workouts for your brain!</p>
 
-            <h2>Choose your difficulty</h2>
+            <h2 class="choose-text press-start-2p-regular">Choose your class!</h2>
             <div class="difficulty-options">
-                <button class="difficulty-btn" data-difficulty="easy">Easy</button>
-                <button class="difficulty-btn" data-difficulty="medium">Medium</button>
-                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                <button class="difficulty-btn press-start-2p-regular" data-difficulty="easy">Warm up</button>
+                <button class="difficulty-btn press-start-2p-regular" data-difficulty="medium">Classic</button>
+                <button class="difficulty-btn press-start-2p-regular" data-difficulty="hard">Power Pilates</button>
             </div>
 
-            <button id="start-btn">
-                Start Game
+            <button id="start-btn" class="press-start-2p-regular">
+                Start Workout
             </button>
         </section>
 
         <!--GAME SCREEN-->
         <section id="game-screen" class="screen hidden">
-            <h1>Math Out</h1>
-            <div class="stats">
+            <h1 class="title"><span class="title press-start-2p-regular">Mathilates</span></h1>
+            <div class="stats press-start-2p-regular">
                 <p>Score: <span id="score">0</span></p>
                 <p>Time: <span id="timer">60</span></p>
             </div>
 
-            <div class="problem">
+            <div class="problem press-start-2p-regular">
                 <span id="question">5 + 3</span>
             </div>
 
-            <input type="number" id="answer" placeholder="Your answer">
+            <p id="feedback" class="press-start-2p-regular"></p>
+            <input type="number" id="answer" class="press-start-2p-regular" placeholder="Your answer">
             
-            <button id="submit-btn">Submit</button>
+            <button id="submit-btn" class="press-start-2p-regular">enter</button>
 
-            <p id="feedback"></p>
         </section>
 
         <!--RESULTS SCREEN-->
         <section id="results-screen" class="screen hidden">
-            <h1>Time's Up</h1>
+            <h1 class="title"><span class="title press-start-2p-regular">Mathilates</span></h1>
+            <h2 class="press-start-2p-regular">Class Over!</h2>
 
-            <h2>Your Score</h2>
-            <p id="final-score">0</p>
+            <h3 class="press-start-2p-regular">Your Score</h3>
+            <p id="final-score" class="press-start-2p-regular">0</p>
 
-            <p>
+            <p class="accuracy press-start-2p-regular">
                 Accuracy: <span id="accuracy">0%</span>
             </p>
-
-            <button id="play-again-btn">
-                Play Again
-            </button>
-            <button id="back-home-btn">
-                Go Back Home
-            </button>
+            
+            <div class="results-btn">
+                <button id="play-again-btn" class="press-start-2p-regular">
+                    Play Again
+                </button>
+                <button id="back-home-btn" class="press-start-2p-regular">
+                    Go Back Home
+                </button>
+            </div>
+            
         </section>
         
     </main>
