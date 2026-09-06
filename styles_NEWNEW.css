@@ -1,0 +1,135 @@
+/* fonts */
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #7a004b;
+}
+
+@font-face {
+    font-family: NineByFive;
+    src: url(fonts/NineByFiveNbp-MypB.ttf);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.text-node {
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+}
+
+
+body {
+    background-image: url(assets/mathilates.svg);
+    background-position: center center;
+    background-color: azure;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* width: 100%; */
+    min-height: 100vh;
+    margin: 0;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.game-container {
+    width: 780px;
+    height: 452px;
+    background-color: #ffc2e8;
+    border: 18px solid #cc007e;
+    border-radius: 55px;
+    box-shadow: 20px 20px 10px rgba(51, 2, 32, 0.3);
+    margin: auto;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.title,
+.press-start-2p-regular {
+    text-transform: lowercase;
+    font-size: 60px;
+    text-align: center;
+    margin: auto 0px;
+    padding: 20px;
+    letter-spacing: -3px;
+}
+
+#start-screen > .title {
+    padding-bottom: 0;
+}
+
+h1 {
+    margin: auto;
+}
+
+.subtitle {
+    font-family: 'NineByFive', monospace;
+    font-size: 36px;
+    color: #7a004b;
+    text-align: center;
+    margin: -20px 0 50px;
+}
+
+.choose-text {
+    font-size: 30px;
+}
+
+.difficulty-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0 60px;
+}
+
+.difficulty-btn {
+    padding: 10px 20px;
+    margin: 10px 20px;
+    border: 10px solid #cc007e;
+    border-radius: 25px;
+    background: #ffe2f5;
+    box-shadow: 10px 10px 10px rgba(51, 2, 32, 0.3);
+    cursor: pointer;
+    width: 170px;
+    height: 88px;
+    font-size: 100%;
+    letter-spacing: -1px;
+}
+
+.difficulty-btn:hover {
+    background: #ff94d6;
+}
+
+.difficulty-btn.selected {
+    background-color: #ff94d6;
+    color: #7a004b;
+}
+
+#start-btn {
+    display: block;
+    margin: -60px auto 0;
+    padding: 12px 30px;
+    background: #fbddf0;
+    border: 10px solid #cc007e;
+    border-radius: 25px;
+    width: 344px;
+    height: 88px;
+    cursor: pointer;
+    font-size: 150%;
+    /* margin: auto; */
+    text-align: center;
+    box-shadow: 15px 15px 10px rgba(51, 2, 32, 0.3);
+}
+#start-btn:hover {
+    background: #ff94d6;
+}
