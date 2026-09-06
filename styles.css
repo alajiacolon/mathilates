@@ -31,17 +31,19 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
+    width: 100%;
+    padding: 24px;
 }
 
 .game-container {
-    width: 780px;
-    height: 452px;
+    width: min(780px, 100%);
+    min-height: 452px;
     background-color: #ffc2e8;
     border: 18px solid #cc007e;
     border-radius: 55px;
@@ -49,18 +51,33 @@ body {
     margin: auto;
 }
 
+.screen {
+    padding: 0 22px 24px;
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }
 
-.title,
-.press-start-2p-regular {
+.title {
     text-transform: lowercase;
     font-size: 60px;
     text-align: center;
     margin: auto 0px;
     padding: 20px;
     letter-spacing: -3px;
+    line-height: 1.2;
+    max-width: 100%;
+}
+
+/* The title markup contains a styled span inside the styled h1. Keep the
+   inner span from adding a second layer of spacing on small screens. */
+.title .title {
+    font-size: inherit;
+    letter-spacing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 #start-screen > .title {
@@ -86,13 +103,14 @@ h1 {
 .difficulty-options {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 16px;
     margin: 20px 0 60px;
+    flex-wrap: wrap;
 }
 
 .difficulty-btn {
     padding: 10px 20px;
-    margin: 10px 20px;
+    margin: 0;
     border: 10px solid #cc007e;
     border-radius: 25px;
     background: #ffe2f5;
@@ -127,6 +145,9 @@ h1 {
     /* margin: auto; */
     text-align: center;
     box-shadow: 15px 15px 10px rgba(51, 2, 32, 0.3);
+    position: relative;
+    top: 12px;
+    transform: translateY(50%);
 }
 button:hover {
     background: #ff94d6;
@@ -149,7 +170,7 @@ button:hover {
 input {
     /* padding: 10px; */
     /* font-size: 10px; */
-    width: 345px;
+    width: min(345px, 100%);
     height: 90px; 
     border: 10px solid #cc007e;
     border-radius: 25px;
@@ -159,6 +180,7 @@ input {
 
 #answer {
     font-size: 20px;
+    text-align: center;
 }
 
 input::placeholder {
@@ -198,11 +220,14 @@ button {
     width: 225px;
     height: 88px;
     margin-top: 5px;
+    position: relative;
+    top: 12px;
+    transform: translateY(50%);
 }
 #feedback {
     height: 25px;
     font-size: 20px;
-    margin: 0 auto 20px;
+    margin: 12px auto 20px;
 }
 
 #results-screen h2 {
@@ -212,12 +237,17 @@ button {
 
 #results-screen h3 {
     font-size: 30px;
+    margin: 20px 0 8px;
+}
+
+#final-score {
+    font-size: 42px;
+    margin: 0 0 18px;
 }
 
 .accuracy {
     font-size: 20px;
-    margin-top: -30px;
-    margin-bottom: 10px;
+    margin: 0 0 18px;
 }
 
 .results-btn button{
@@ -232,10 +262,172 @@ button {
     gap: 20px;
     width: 100%;
     margin-top: -20px;
+    flex-wrap: wrap;
+    position: relative;
+    top: 12px;
+    transform: translateY(50%);
+}
+
+#start-screen,
+#game-screen,
+#results-screen {
+    padding-bottom: 0;
+}
+
+@media (min-width: 751px) {
+    #results-screen .results-btn {
+        top: 76px;
+    }
 }
 
 .results-btn button:hover{
     width: 243px;
     height: 88px;
     font-size: 100%;
+}
+
+@media (max-width: 750px) {
+    body {
+        align-items: stretch;
+        padding: 12px;
+        background-attachment: scroll;
+    }
+
+    .game-container {
+        min-height: 0;
+        border-width: 10px;
+        border-radius: 30px;
+        box-shadow: 8px 8px 8px rgba(51, 2, 32, 0.3);
+    }
+
+    .screen {
+        padding: 8px 16px 28px;
+    }
+
+    .title {
+        font-size: clamp(24px, 7vw, 42px);
+        letter-spacing: -2px;
+        padding: 18px 4px 12px;
+    }
+
+    .subtitle {
+        font-size: clamp(24px, 7vw, 32px);
+        line-height: 1.05;
+        margin: -4px 0 32px;
+    }
+
+    .choose-text {
+        font-size: clamp(16px, 4.8vw, 24px);
+        line-height: 1.5;
+        padding: 0;
+    }
+
+    .difficulty-options {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px auto 32px;
+        max-width: 330px;
+    }
+
+    .difficulty-btn,
+    #start-btn,
+    .results-btn button,
+    .results-btn button:hover {
+        width: 100%;
+        max-width: 330px;
+        height: 66px;
+        border-width: 7px;
+        border-radius: 20px;
+        box-shadow: 6px 6px 7px rgba(51, 2, 32, 0.3);
+        font-size: 12px;
+    }
+
+    #start-btn {
+        margin: 0 auto;
+    }
+
+    .stats {
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .problem {
+        font-size: clamp(28px, 8vw, 38px);
+        padding: 16px 0 10px;
+    }
+
+    #feedback {
+        font-size: 13px;
+        height: 34px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    input {
+        height: 66px;
+        border-width: 7px;
+        border-radius: 20px;
+    }
+
+    #answer {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    #submit-btn {
+        width: min(225px, 100%);
+        height: 66px;
+        border-width: 7px;
+        border-radius: 20px;
+        font-size: 16px;
+    }
+
+    #results-screen h2 {
+        font-size: clamp(27px, 8vw, 38px);
+        line-height: 1.3;
+        padding: 12px 0;
+    }
+
+    #results-screen h3 {
+        font-size: clamp(18px, 5vw, 24px);
+        padding: 12px 0 0;
+    }
+
+    .accuracy {
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 0 0 18px;
+        padding: 0;
+    }
+
+    .results-btn {
+        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 0;
+        top: 0;
+        transform: translateY(20%);
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding: 6px;
+    }
+
+    .screen {
+        padding-inline: 10px;
+    }
+
+    .difficulty-btn,
+    #start-btn,
+    .results-btn button,
+    input,
+    #submit-btn {
+        height: 58px;
+    }
 }
